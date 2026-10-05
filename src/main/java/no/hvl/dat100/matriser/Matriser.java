@@ -36,7 +36,6 @@ public class Matriser {
             }
             sb.append("\n");
         }
-		System.out.println(sb.toString());
 		return sb.toString();
 	}
 
@@ -76,17 +75,36 @@ public class Matriser {
 	// e)
 	public static int[][] speile(int[][] matrise) {
 
-		// TODO
+		int[][] outMatrix = new int[matrise[0].length][matrise.length];
 
-		throw new UnsupportedOperationException("Metoden speile ikke implementert");
+		for (int i = 0; i < matrise.length; i++){
+			for (int j = 0; j < matrise[i].length; j++){
+				outMatrix[j][i] = matrise[i][j];
+			}
+		}
+
+		return outMatrix;
 	
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("Metoden multipliser ikke implementert");
+		if (a[0].length != b.length) {
+			throw new UnsupportedOperationException("Matriks A sin rekke størrelse må være det same som matriks b sin rad størrelse");
+		}
+
+		int[][] outMatrix = new int[a.length][a[0].length];
+
+		for (int i = 0; i < outMatrix.length; i++) {
+			for (int j = 0; j < b.length; j++) {
+				for (int k = 0; k < b[0].length; k++) {
+					outMatrix[i][j] += a[i][k] * b[k][j];
+				}
+			}
+		}
+
+		return outMatrix;
 	
 	}
 }
