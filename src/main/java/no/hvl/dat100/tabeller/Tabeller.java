@@ -1,5 +1,7 @@
 package no.hvl.dat100.tabeller;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -42,7 +44,17 @@ public class Tabeller {
 		for (int value : tabell){
             sum += value;
 		}
-		return sum;
+
+		int initial = 0;
+		int sumWhile = 0;
+		do {
+			if (tabell.length == 0) break;
+            sumWhile += tabell[initial];
+			initial++;
+        }
+		while (initial < tabell.length);
+
+		return sumWhile;
 	}
 
 	// d)

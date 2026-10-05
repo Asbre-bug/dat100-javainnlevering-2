@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Timeout;
 @Timeout(30)
 class TabellerEnhetsTests {
 
-	private static int[] tabell1, tabell2, tabell3;
+	private static int[] tabell1, tabell2, tabell3, tabelltest;
 
 	@BeforeEach
 	public void initEach() {

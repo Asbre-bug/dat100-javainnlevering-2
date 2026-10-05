@@ -83,11 +83,19 @@ class MatriserEnhetsTests {
 	void testSpeile() {
 		
 		int[][] speilet = { {1,4,7}, {2,5,8}, {3,6,9} };
+
+		//Added test for matrix C
+		int[][] speilet_c = { {1,4,7,10}, {2,5,8,11}, {3,6,9,12} };
 			
 		int[][] speile = Matriser.speile(a);
 		
 		assertFalse(speile == a);
 		assertArrayEquals(speilet,speile);
+
+		int[][] speile_c = Matriser.speile(c);
+
+		assertFalse(speile == c);
+		assertArrayEquals(speilet_c,speile_c);
 	}
 	
 	@Test 
