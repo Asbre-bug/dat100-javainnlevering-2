@@ -2,7 +2,6 @@ package no.hvl.dat100.tabeller;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -60,16 +59,23 @@ public class Tabeller {
 	// d)
 	public static boolean finnesTall(int[] tabell, int tall) {
 
-		return Arrays.stream(tabell).anyMatch(value -> value == tall);
+		for (int value : tabell){
+			if (value == tall)
+				return true;
+		}
+
+		return false;
 	}
 
 	// e)
 	public static int posisjonTall(int[] tabell, int tall) {
-		int position = Arrays.binarySearch(tabell, tall);
-		// BinarySearch if not able to find the value returns the index of the array +1 in negative value.
-		// So to get -1, I add the length of the array back.
-		if (position < 0) position += tabell.length;
-		return position;
+		for (int i = 0; i < tabell.length; i++){
+			if (tabell[i] == tall){
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 	// f)
@@ -100,8 +106,13 @@ public class Tabeller {
 
 	// h)
 	public static int[] settSammen(int[] tabell1, int[] tabell2) {
-
-		return IntStream.concat(Arrays.stream(tabell1), Arrays.stream(tabell2)).toArray();
-
+		int[] concatenated = new int[tabell1.length + tabell2.length];
+		for (int i = 0; i < tabell1.length; i++){
+			concatenated[i] = tabell1[i];
+		}
+		for (int i = 0; i < tabell2.length; i++){
+			concatenated[tabell1.length + i] = tabell2[i];
+		}
+		return concatenated;
 	}
 }
